@@ -1,0 +1,27 @@
+
+=== Task 1
+  ok    unknown destination floods                     [1, 2, 3]
+  ok    known destination is not flooded               [0]
+  ok    learned both                                   {'00:00:00:00:00:0a': 0, '00:00:00:00:00:0b': 2}
+  ok    broadcast floods                               [1, 2, 3]
+  ok    never back out the arrival port                []
+  ok    station moved, table follows                   ([0], 3)
+  ok    aged-out entry is gone                         False
+
+  all ok
+  ok   [1] all seven checks
+
+=== Task 2
+  ok   [2] A1 table before clearing  - out/arp-before.txt
+  ok   [2] A1 table after refilling  - out/arp-after.txt
+  ok   [2] the two tables differ  - identical files - did the clear work?
+  ok   [2] B1 request (1) and reply (2) both present  - opcodes seen ['1', '2']
+
+=== Task 3
+  baseline     wasted   323,380   delivered 46,347   missed      0
+  yours        wasted   156,814   delivered 46,347   missed      0
+  ok   [3] R4 no extra missed deliveries  - 0 vs 0
+  ok   [3] R5 fewer wasted deliveries  - 52% cut
+ skip  [3] R6 attack description in observation.md  - graded by a human
+
+  7 passed, 0 failed, 1 skipped

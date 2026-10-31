@@ -1,0 +1,6 @@
+Seed=246, frames=48954, capacity=64
+  baseline     wasted   323,380   delivered 46,347   missed      0
+  always-admit wasted   158,056   delivered 46,347   missed      0
+  selective    wasted   156,814   delivered 46,347   missed      0
+Reduction vs baseline: 51.51%
+Admission policy saves: 1242 wasted deliveries

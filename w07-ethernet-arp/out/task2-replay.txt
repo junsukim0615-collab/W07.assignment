@@ -1,0 +1,155 @@
+
+ARP BEFORE
+
+Interface: 192.168.30.1 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.30.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+
+Interface: 192.168.219.178 --- 0xd
+  Internet Address      Physical Address      Type
+  192.168.219.1         80-ca-4b-1c-3a-2d     dynamic   
+  192.168.219.189       4c-5f-70-05-a4-1f     dynamic   
+  192.168.219.255       ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+Interface: 192.168.15.1 --- 0x14
+  Internet Address      Physical Address      Type
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+
+
+ARP IMMEDIATELY AFTER CLEAR
+
+Interface: 192.168.30.1 --- 0x7
+  Internet Address      Physical Address      Type
+  224.0.0.22            01-00-5e-00-00-16     static    
+
+Interface: 192.168.219.178 --- 0xd
+  Internet Address      Physical Address      Type
+  192.168.219.1         80-ca-4b-1c-3a-2d     dynamic   
+  224.0.0.22            01-00-5e-00-00-16     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+
+Interface: 192.168.15.1 --- 0x14
+  Internet Address      Physical Address      Type
+  224.0.0.22            01-00-5e-00-00-16     static    
+
+
+GATEWAY PING
+
+Pinging 192.168.219.1 with 32 bytes of data:
+Reply from 192.168.219.1: bytes=32 time=6ms TTL=64
+Reply from 192.168.219.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.219.1: bytes=32 time=4ms TTL=64
+
+Ping statistics for 192.168.219.1:
+    Packets: Sent = 3, Received = 3, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 4ms, Maximum = 6ms, Average = 4ms
+
+
+WEB ACCESS
+HTTP status: 200
+Remote IP: 163.152.6.10
+
+
+ARP AFTER
+
+Interface: 192.168.30.1 --- 0x7
+  Internet Address      Physical Address      Type
+  224.0.0.22            01-00-5e-00-00-16     static    
+
+Interface: 192.168.219.178 --- 0xd
+  Internet Address      Physical Address      Type
+  192.168.219.1         80-ca-4b-1c-3a-2d     dynamic   
+  224.0.0.22            01-00-5e-00-00-16     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+
+Interface: 192.168.15.1 --- 0x14
+  Internet Address      Physical Address      Type
+  224.0.0.22            01-00-5e-00-00-16     static    
+
+
+WI-FI DYNAMIC ENTRY COUNTS
+before=2, after=1
+
+MY ARP REQUEST/REPLY (seconds,srcMAC,dstMAC,opcode,srcIP,dstIP)
+0.000000000,8c:17:59:ac:3b:cc,ff:ff:ff:ff:ff:ff,1,192.168.219.178,192.168.219.1
+0.003223800,80:ca:4b:1c:3a:2d,8c:17:59:ac:3b:cc,2,192.168.219.1,192.168.219.178
+33.685008500,80:ca:4b:1c:3a:2d,8c:17:59:ac:3b:cc,1,192.168.219.1,192.168.219.178
+33.685043300,8c:17:59:ac:3b:cc,80:ca:4b:1c:3a:2d,2,192.168.219.178,192.168.219.1
+
+LOADED CAPTURE
+4 ARP frames in the loaded file. This is not a per-minute rate.
+
+ORIGINAL 60-SECOND MEASUREMENT (saved record)
+Capture filter: arp
+Capture stop condition: duration:60
+Original ARP frame count: 139
+First-to-last packet interval: 58.995294900 seconds
+Own IPv4 address: 192.168.219.178
+Gateway IPv4 address: 192.168.219.1
+Own request time relative: 1.051444900 seconds
+Matching reply time relative: 1.054668700 seconds
+Reply delay: 0.003223800 seconds
+Public submission capture: 4 frames (two matching ARP request/reply pairs involving this PC)
+The original capture also contained gateway broadcasts for other devices.
+Example campus population assumption: 1000 machines
+Assignment arithmetic: 139 * 1000 = 139000 frames/minute
+This is an illustrative multiplication, not a measured campus rate.
+Shared broadcast observations must not be counted as independent generated traffic.
+
+
+
+# Task 2 ���� ��� �м�
+
+���� Wi-Fi���� ARP ĳ�ø� ���� ����Ʈ���� ping�� ������ ������Ʈ ������ �����ߴ�. ĸó ���ʹ� `arp`, ĸó �ð� ������ 60�ʷ� �����ߴ�.
+
+| �׸� | ���� ��� |
+|---|---|
+| �� PC | 192.168.219.178 / 8c:17:59:ac:3b:cc |
+| ����Ʈ���� | 192.168.219.1 / 80:ca:4b:1c:3a:2d |
+| Wi-Fi ���� ARP �׸� | ���� �� 2�� �� ���� �� 1�� |
+| ����Ʈ���� ping | 3ȸ ����, 3ȸ ����, �ս� 0%, ��� 4ms |
+| �� ���� | HTTP 200, ���� IP 163.152.6.10 |
+| 60�� ĸó�� ARP ��Ŷ �� | 139�� |
+
+## ���� ���ƿ� �׸�
+
+���� ���� ������ ���̺����� ����Ʈ���̸� ���� �׸����� ��Ÿ����. ĸó������ �� PC�� ����Ʈ���� IP�� ���� �����Ⱑ ������ ���� Ȯ�εȴ�. �ܺ� ��Ʈ��ũ�� ���� �������� �켱 ����Ʈ���̷� ������ �ϹǷ� �� MAC �ּҰ� �ʿ��ϴ�. ��, ping ���� �� �̹� �׸��� �����Ǿ� �־����Ƿ� ���� ping�� ���� ��û�� ������ٰ� ������ ���� ����. ��׶��� ��ŵ� ������ ����ų �� �ִ�.
+
+## �׸� ���� �پ�� ����
+
+Wi-Fi�� ���� �׸��� ����Ʈ���̿� 192.168.219.189�� 2��������, ���� �Ŀ��� ����Ʈ���� 1���� ���Ҵ�. �̹� ���迡�� .189���� ����� �ٽ� �������� �ʾ� �ش� ������ ���н����� ���� ������ �ؼ��� �� �ִ�. VMware ���� ����Ϳ� static���� ǥ�õ� ��Ƽĳ��Ʈ����ε�ĳ��Ʈ �׸��� �� �񱳿��� �����ߴ�.
+
+## �� ������ ���̺��� ���� ����
+
+�� ���� 163.152.6.10���� ������ ���������� ARP ���̺����� �� �ּҰ� ����. ARP�� ���� ��ũ���� ���� ȩ�� IPv4 �ּҿ� �����ϴ� MAC �ּҸ� ã�´�. ���� ������ IP�� �������� �� ��Ŷ�� ���� ��ũ�� ������ �������� ����Ʈ���� MAC�̹Ƿ� ���� MAC�� ���� �˾Ƴ� �ʿ䰡 ����.
+
+## ��û�� ����
+
+ĸó ���� 1.0514449�ʿ� �� PC�� `192.168.219.1`�� ���� ��û�� ���´�. ������ MAC�� `ff:ff:ff:ff:ff:ff`�� ���� ��ε�ĳ��Ʈ �����ο� ���޵Ǵ� �ּҴ�. 1.0546687�ʿ� ����Ʈ���̰� �����߰� �������� �� PC�� `8c:17:59:ac:3b:cc`����. �� ������ ��û�� PC�� ������ ����ĳ��Ʈ�̸� �� ������ �� ������ �� 3.224ms��.
+
+## 1�� Ʈ���Ȱ� �Ը� ����
+
+60�ʷ� ������ ĸó�� ARP ������ 139���� ��ϵƴ�. ù ��Ŷ�� ������ ��Ŷ�� �ð� ���� �� 58.995�ʷ�, ��Ŷ�� ���� �������� ������ ĸó ���� �ð����� �ٸ���. �� ������ �� ��û������ �ܿ� �����Ⱑ �ٸ� IP�� ã�� ��ε�ĳ��Ʈ�� ���Եȴ�.
+
+��ǻ�� ���� 1,000��� �����ϸ� ������ �ܼ� ������ 139 �� 1,000 = 139,000��/���̴�. �ٸ� �� ����ġ�� �� PC�� ������ ���� �ƴ϶� �� PC�� ���� Ʈ�����̴�. ���� PC�� ���� ��ε�ĳ��Ʈ�� �ߺ� �����ϹǷ� �̸� ���� ��Ʈ��ũ ��ü �߻������� ������ �� ������, ��ġ�� Ʈ���Ȱ� VLAN ������ ���󼭵� �޶�����.
+
+## �˻�
+
+���� �˻翡���� tshark�� PATH�� ���� ĸó ���� �˻縦 �ǳʶپ���. ���� Wireshark ��ġ ��θ� �ش� �˻� ���μ����� PATH�� �߰��� �ٽ� �����ߴ�. ���� ����� `4 passed, 0 failed, 0 skipped`�̸�, opcode 1 ��û�� opcode 2 ������ ��� Ȯ�εƴ�.
+
+## ���� ����� ĸó
+
+������ 60�ʰ� ������ ARP ������ 139���̸�, ���� ������� `arp.pcapng`���� �� PC�� IP�� ARP �۽��� �Ǵ� ����� �����Ӹ� �����. �ٸ� ��ġ�� ���� ��û�� ������ ���⺻���� �����ϴ� ��û������ 4��(2��)�� �ִ�. ���� ���⺻�� ��Ŷ �� 4���� ��ü ������ 139���� ���� �ٸ� ������ ��ġ��. ������ ���ÿ� �����ϸ� 1�� ���� ����� `arp-minute-summary.txt`�� ������ ����ߴ�.
+
+

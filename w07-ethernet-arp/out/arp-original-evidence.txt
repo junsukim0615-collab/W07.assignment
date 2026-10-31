@@ -1,0 +1,10 @@
+File name:           w07-ethernet-arp/out/arp.pcapng
+Number of packets:   139
+Capture duration:    58.995294900 seconds
+Earliest packet time: 2026-10-31 14:49:32.737405200
+Latest packet time:   2026-10-31 14:50:31.732700100
+SHA256:              781663c758ad8e6d4e2dd8996262c7ace6a44f5fad86dc1f81ab46d56940f745
+SHA1:                3b27ea356027c0563c1c49523752720646175e17
+Command: tshark -r out/arp.pcapng -Y arp -T fields -e frame.number; count output lines
+ARP count: 139
+Capture duration:60 was the acquisition stop condition; capinfos duration is first-to-last packet time.

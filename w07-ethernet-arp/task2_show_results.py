@@ -2,6 +2,7 @@
 from pathlib import Path
 import subprocess
 import re
+import shutil
 
 OUT = Path(__file__).resolve().parent / 'out'
 def read(name):
@@ -26,15 +27,16 @@ def main():
     show('WI-FI DYNAMIC ENTRY COUNTS', f'before={before}, after={after}')
     cap = OUT / 'arp.pcapng'
     if cap.exists():
-        cmd = [r'C:\Program Files\Wireshark\tshark.exe', '-r', str(cap), '-Y', 'arp', '-T', 'fields', '-E', 'separator=,', '-e', 'frame.time_relative', '-e', 'eth.src', '-e', 'eth.dst', '-e', 'arp.opcode', '-e', 'arp.src.proto_ipv4', '-e', 'arp.dst.proto_ipv4']
-        result = subprocess.run(cmd, capture_output=True, text=True)
+        tshark = shutil.which('tshark') or r'C:\Program Files\Wireshark\tshark.exe'
+        cmd = [tshark, '-r', str(cap), '-Y', 'arp', '-T', 'fields', '-E', 'separator=,', '-e', 'frame.time_relative', '-e', 'eth.src', '-e', 'eth.dst', '-e', 'arp.opcode', '-e', 'arp.src.proto_ipv4', '-e', 'arp.dst.proto_ipv4']
+        result = subprocess.run(cmd, capture_output=True, text=True, check=True)
         rows = result.stdout.strip().splitlines() if result.stdout.strip() else []
         own_rows = [row for row in rows if '192.168.219.178' in row]
         show('MY ARP REQUEST/REPLY (seconds,srcMAC,dstMAC,opcode,srcIP,dstIP)', '\n'.join(own_rows) or result.stderr)
-        show('ARP COUNT', f'{len(rows)} ARP packets in the configured 60-second capture.\nExample estimate for 1000 machines: {len(rows)} x 1000 = {len(rows)*1000} packets/min.\nThis is a rough arithmetic estimate; shared broadcasts and traffic differences prevent linear prediction.')
-    (OUT / 'task2-measurement-results.md').write_text('# Task 2 measurement results\n\n' + '\n'.join(sections), encoding='utf-8')
+        show('LOADED CAPTURE', f'{len(rows)} ARP frames in the loaded file. This is not a per-minute rate.')
+    show('ORIGINAL 60-SECOND MEASUREMENT (saved record)', read('arp-minute-summary.txt'))
+    # Display only: preserve the historical measurement report.
 
 if __name__ == '__main__':
     main()
     print('\n' + read('task2-analysis.md'), flush=True)
-

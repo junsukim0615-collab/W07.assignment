@@ -1,0 +1,9 @@
+== w07-ethernet-arp/out/ ==
+
+  [ok]     arp-before.txt       ARP table before clearing  (1,135 bytes)
+  [ok]     arp-after.txt        ARP table after refilling  (555 bytes)
+  [ok]     arp.pcapng           request and reply on the wire  (696 bytes)
+  [ok]     bench.txt            python3 bench.py --yours  (295 bytes)
+  [ok]     observation.md       2-3 lines per task  (2,686 bytes)
+
+  Format check passed. Whether it is right is up to you.
