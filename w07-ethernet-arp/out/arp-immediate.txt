@@ -1,0 +1,14 @@
+
+Interface: 192.168.30.1 --- 0x7
+  Internet Address      Physical Address      Type
+  224.0.0.22            01-00-5e-00-00-16     static    
+
+Interface: 192.168.219.178 --- 0xd
+  Internet Address      Physical Address      Type
+  192.168.219.1         80-ca-4b-1c-3a-2d     dynamic   
+  224.0.0.22            01-00-5e-00-00-16     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+
+Interface: 192.168.15.1 --- 0x14
+  Internet Address      Physical Address      Type
+  224.0.0.22            01-00-5e-00-00-16     static    

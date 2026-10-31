@@ -1,18 +1,31 @@
 # W07.assignment
 
-컴퓨터네트워크 7주차 Task 1: 학습 스위치 구현 및 검증 결과입니다.
+컴퓨터네트워크 7주차 학습 스위치 및 ARP 실측 과제입니다.
+
+## Task 1
 
 - [구현 코드](w07-ethernet-arp/task1_switch.py)
+- [검증 결과](w07-ethernet-arp/out/task1-result.md): 제공된 7개 검사 통과
+
+## Task 2
+
+- [실측 분석 및 요구사항 답변](w07-ethernet-arp/out/task2-analysis.md)
+- [삭제 전 ARP 테이블](w07-ethernet-arp/out/arp-before.txt)
+- [복원 후 ARP 테이블](w07-ethernet-arp/out/arp-after.txt)
+- [ARP 캡처](w07-ethernet-arp/out/arp.pcapng): 내 PC 관련 요청·응답 4개(2쌍)
+- [1분 측정 요약](w07-ethernet-arp/out/arp-minute-summary.txt): 원본 139개, 제출본은 다른 장치 대상 요청 제외
+- [검사 결과](w07-ethernet-arp/out/task2-test.txt): 4 passed, 0 failed, 0 skipped
 - [관찰 기록](w07-ethernet-arp/out/observation.md)
-- [실행 결과 정리](w07-ethernet-arp/out/task1-result.md)
-- [검증 출력](w07-ethernet-arp/out/task1-verify.txt)
 
 ```bash
 cd w07-ethernet-arp
 python task1_switch.py --verify
 python test_tasks.py --task 1
+python test_tasks.py --task 2
 ```
 
-제공된 7개 검사를 모두 통과했습니다. 현재 Task 1 결과만 포함하며 Task 2와 Task 3은 아직 완료하지 않았습니다.
+Task 2 캡처 내용 검사에는 tshark가 필요합니다. `task2_show_results.py`는 저장된 실측 자료를 표시하는 보조 스크립트이며 현재 Windows 설치 경로와 실험 당시 주소를 기준으로 작성했습니다. 제출용 캡처로 다시 실행하면 패킷 수는 4개로 표시됩니다. 원본 1분 측정값 139개는 별도 측정 요약을 참고하세요.
+
+Task 3은 아직 완료하지 않았습니다.
 
 과제 원본: https://github.com/codingchild2424/2026-lecture-network-practice/tree/main/w07-ethernet-arp

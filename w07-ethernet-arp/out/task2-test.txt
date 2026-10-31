@@ -1,0 +1,8 @@
+
+=== Task 2
+  ok   [2] A1 table before clearing  - out/arp-before.txt
+  ok   [2] A1 table after refilling  - out/arp-after.txt
+  ok   [2] the two tables differ  - identical files - did the clear work?
+  ok   [2] B1 request (1) and reply (2) both present  - opcodes seen ['1', '2']
+
+  4 passed, 0 failed, 0 skipped
