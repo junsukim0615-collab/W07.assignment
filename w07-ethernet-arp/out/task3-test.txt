@@ -1,0 +1,9 @@
+
+=== Task 3
+  baseline     wasted   323,380   delivered 46,347   missed      0
+  yours        wasted   156,814   delivered 46,347   missed      0
+  ok   [3] R4 no extra missed deliveries  - 0 vs 0
+  ok   [3] R5 fewer wasted deliveries  - 52% cut
+ skip  [3] R6 attack description in observation.md  - graded by a human
+
+  2 passed, 0 failed, 1 skipped
